@@ -12,10 +12,10 @@ et vous savez lire un run GitHub Actions, y compris quand il échoue.
 
 ## Avant de commencer
 
-- [ ] Le script de vérification affiche « 0 en échec »
-- [ ] Vous avez créé **votre** dépôt `tasks-api` depuis le modèle et vous l'avez cloné
-- [ ] `pytest` est vert en local (10 tests réussis), dans l'environnement `.venv` activé
-- [ ] Vous êtes sur une branche `tp1` : `git switch -c tp1`
+- [X] Le script de vérification affiche « 0 en échec »
+- [X] Vous avez créé **votre** dépôt `tasks-api` depuis le modèle et vous l'avez cloné
+- [X] `pytest` est vert en local (10 tests réussis), dans l'environnement `.venv` activé
+- [X] Vous êtes sur une branche `tp1` : `git switch -c tp1`
 
 ### Les commandes qui changent selon votre système
 

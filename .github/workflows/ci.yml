@@ -1,0 +1,19 @@
+name: Test
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: recuperer le code
+        uses: actions/checkout@v6
+      - name: install python 3.12
+        uses: actions/setup-python@v7
+        with:
+          python-version: 3.12
+      - name: install dependencies
+        run: python -m pip install --upgrade pip && pip install -r requirements-dev.txt
+      - name: python version
+        run: python --version
+      - name: run tests
+        run: pytest
