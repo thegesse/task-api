@@ -1,0 +1,17 @@
+TP1 - REPONSES
+
+1. DUREE ET LOGS DU RUN « HELLO »
+
+Duree du run : 7 secondes.
+
+Le run « Hello » a dure 7 secondes. Pour voir ce qui s'est passe a chaque etape, je vais dans l'onglet Actions, j'ouvre le run, puis je developpe les etapes du job pour afficher leurs logs.
+
+2. ECHEC DES TESTS
+
+Quand MAX_TITLE_LENGTH est regle a 5, c'est le test test_is_valid_title_accepts_normal_title qui echoue, a la ligne 12 de tests/test_logic.py. Le titre « Faire le TP1 » est trop long avec cette limite, alors que le test verifie qu'il est accepte.
+
+Je l'ai repere rapidement grace aux logs de pytest, qui indiquent le nom du test en echec et la ligne concernee.
+
+3. POURQUOI ATTENDRE UNE CI VERTE ?
+
+J'attends que la CI soit verte avant de fusionner pour verifier que les tests passent. Cela evite d'ajouter a la branche principale un changement qui pourrait casser quelque chose et donne a l'equipe plus confiance dans le code.
