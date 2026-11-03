@@ -15,3 +15,42 @@ Je l'ai repere rapidement grace aux logs de pytest, qui indiquent le nom du test
 3. POURQUOI ATTENDRE UNE CI VERTE ?
 
 J'attends que la CI soit verte avant de fusionner pour verifier que les tests passent. Cela evite d'ajouter a la branche principale un changement qui pourrait casser quelque chose et donne a l'equipe plus confiance dans le code.
+
+
+TP2 - REPONSES
+
+1. LINTER, FORMATEUR ET JOBS SEPARES
+
+Flake8 analyse le code et signale des problemes comme un import inutilise ou une erreur de style. Black, lui, met automatiquement le code en forme de facon uniforme. Avec black --check, on verifie simplement que le formatage est correct.
+
+J'ai separe lint et test pour que les controles soient plus faciles a lire et a depanner. Si un job echoue, on voit tout de suite si le probleme vient du style du code ou des tests. Les deux jobs peuvent aussi tourner en parallele.
+
+2. VERSIONS DE PYTHON, CACHE ET ARTEFACT
+
+Tester avec plusieurs versions de Python permet de reperer des incompatibilites qu'on ne verrait pas en testant avec une seule version. Le cache pip garde les dependances deja installees pour accelerer les runs suivants, quand le cache correspond aux dependances du projet.
+
+Un artefact est un fichier produit pendant le workflow, que GitHub conserve pour qu'on puisse le telecharger apres le run. Ici, c'est le rapport de couverture coverage.xml, publie pour le job Python 3.12.
+
+3. PROTECTION DE LA BRANCHE MAIN
+
+Interdire les modifications directes sur main oblige a passer par une pull request. On peut alors relire les changements et attendre que les verifications obligatoires soient vertes avant la fusion, ce qui evite d'integrer trop vite du code casse.
+
+4. CONFLIT ET VERIFICATION APRES RESOLUTION
+
+Git ne peut pas choisir quelle version garder quand deux branches modifient la meme ligne : il ne connait pas l'intention derriere les changements. Il signale donc le conflit et il faut reunir les deux lignes voulues manuellement.
+
+Apres la resolution, la CI relance les verifications sur la pull request. Les jobs de lint et de tests permettent de confirmer que le code passe toujours les controles.
+
+5. SECRET ET VARIABLE
+
+GitHub masque la valeur d'un secret dans les logs pour eviter qu'elle soit exposee par accident. Dans mon run, sa valeur apparait sous la forme ***. Si on commite un secret dans le depot, il peut rester visible dans l'historique Git meme apres sa suppression : il faut alors le revoquer et le remplacer.
+
+J'utilise un secret pour une information confidentielle, comme un jeton d'acces. Une variable convient aux reglages non sensiblesg.
+
+6. REPARATION DES PIPELINES A, B ET C
+
+Pipeline A : il y avait une indentation incorrecte devant l'etape d'installation des dependances. GitHub a refuse le fichier a cause d'une erreur de syntaxe YAML. Je l'ai trouvee dans l'erreur de validation du workflow; pour l'eviter, je garde une indentation reguliere et je verifie la syntaxe du YAML.
+
+Pipeline B : l'etape checkout manquait. Le runner n'avait donc pas recupere le depot, et pip ne trouvait pas requirements-dev.txt. Les logs indiquaient que le fichier etait introuvable. Il faut recuperer le code avec actions/checkout avant d'utiliser ses fichiers.
+
+Pipeline C : la version 3.10 n'etait pas entre guillemets dans la matrice. YAML l'a interpretee comme le nombre 3.1, et setup-python a cherche une version inexistante. Le message d'erreur indiquait justement 3.1. Pour eviter ca, j'ecris les versions Python entre guillemets.
