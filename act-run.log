@@ -1,0 +1,418 @@
+[Test/lint  ] ⭐ Run Set up job
+[Test/test-1] ⭐ Run Set up job
+[Test/test-1] 🚀  Start image=catthehacker/ubuntu:act-latest
+[Test/lint  ] 🚀  Start image=catthehacker/ubuntu:act-latest
+[Test/test-2] ⭐ Run Set up job
+[Test/test-2] 🚀  Start image=catthehacker/ubuntu:act-latest
+[Test/test-3] ⭐ Run Set up job
+[Test/test-3] 🚀  Start image=catthehacker/ubuntu:act-latest
+[Test/test-3]   🐳  docker pull image=catthehacker/ubuntu:act-latest platform= username= forcePull=true
+[Test/test-2]   🐳  docker pull image=catthehacker/ubuntu:act-latest platform= username= forcePull=true
+[Test/lint  ]   🐳  docker pull image=catthehacker/ubuntu:act-latest platform= username= forcePull=true
+[Test/test-1]   🐳  docker pull image=catthehacker/ubuntu:act-latest platform= username= forcePull=true
+[Test/test-3]   🐳  docker create image=catthehacker/ubuntu:act-latest platform= entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[Test/lint  ]   🐳  docker create image=catthehacker/ubuntu:act-latest platform= entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[Test/test-1]   🐳  docker create image=catthehacker/ubuntu:act-latest platform= entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[Test/test-2]   🐳  docker create image=catthehacker/ubuntu:act-latest platform= entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[Test/test-3]   🐳  docker run image=catthehacker/ubuntu:act-latest platform= entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[Test/test-1]   🐳  docker run image=catthehacker/ubuntu:act-latest platform= entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[Test/test-2]   🐳  docker run image=catthehacker/ubuntu:act-latest platform= entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[Test/lint  ]   🐳  docker run image=catthehacker/ubuntu:act-latest platform= entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[Test/test-1]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[Test/lint  ]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[Test/test-3]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[Test/test-2]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[Test/test-2]   ✅  Success - Set up job
+[Test/lint  ]   ✅  Success - Set up job
+[Test/test-3]   ✅  Success - Set up job
+[Test/test-1]   ✅  Success - Set up job
+[Test/test-2]   ☁  git clone 'https://github.com/actions/setup-python' # ref=v7
+[Test/lint  ]   ☁  git clone 'https://github.com/actions/setup-python' # ref=v7
+[Test/test-3]   ☁  git clone 'https://github.com/actions/setup-python' # ref=v7
+[Test/test-1]   ☁  git clone 'https://github.com/actions/setup-python' # ref=v7
+[Test/test-2]   ☁  git clone 'https://github.com/actions/upload-artifact' # ref=v3
+[Test/lint  ] ⭐ Run Main recuperer le code
+[Test/lint  ]   🐳  docker cp src=/home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/. dst=/home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api
+[Test/lint  ]   ✅  Success - Main recuperer le code [144.321508ms]
+[Test/lint  ] ⭐ Run Main install python 3.12
+[Test/lint  ]   🐳  docker cp src=/home/gooses/.cache/act/actions-setup-python@v7/ dst=/var/run/act/actions/actions-setup-python@v7/
+[Test/test-3]   ☁  git clone 'https://github.com/actions/upload-artifact' # ref=v3
+[Test/lint  ]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-setup-python@v7/dist/setup/index.js] user= workdir=
+[Test/lint  ]   ❓  ::group::Installed versions
+[Test/lint  ]   | Successfully set up CPython (3.12.16)
+[Test/lint  ]   ❓  ::endgroup::
+[Test/lint  ]   | [command]/opt/hostedtoolcache/Python/3.12.16/x64/bin/pip cache dir
+[Test/test-1]   ☁  git clone 'https://github.com/actions/upload-artifact' # ref=v3
+[Test/lint  ]   | /root/.cache/pip
+[Test/lint  ]   ⚙  ***
+[Test/lint  ]   | Cache Size: ~0 MB (41254 B)
+[Test/lint  ]   | [command]/usr/bin/tar -xf /tmp/a223dd83-9ab5-4b2c-8eef-f781e63a698f/cache.tzst -P -C /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api --use-compress-program unzstd
+[Test/lint  ]   | Cache restored successfully
+[Test/lint  ]   | Cache restored from key: setup-python-linux-x64-24.04-ubuntu-python-3.12.16-pip-ca599b1fc95e4f788f5c83b373c90aac4e626286337d4d42c3ee950e61e9ea27
+[Test/lint  ]   ❓ add-matcher /run/act/actions/actions-setup-python@v7/.github/python.json
+[Test/lint  ]   ✅  Success - Main install python 3.12 [1.586170549s]
+[Test/lint  ]   ⚙  ::set-env:: Python_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.16/x64
+[Test/lint  ]   ⚙  ::set-env:: Python2_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.16/x64
+[Test/lint  ]   ⚙  ::set-env:: Python3_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.16/x64
+[Test/lint  ]   ⚙  ::set-env:: LD_LIBRARY_PATH=/opt/hostedtoolcache/Python/3.12.16/x64/lib
+[Test/lint  ]   ⚙  ::set-env:: pythonLocation=/opt/hostedtoolcache/Python/3.12.16/x64
+[Test/lint  ]   ⚙  ::set-env:: PKG_CONFIG_PATH=/opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+[Test/lint  ]   ⚙  ::set-output:: python-version=3.12.16
+[Test/lint  ]   ⚙  ::set-output:: python-path=/opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+[Test/lint  ]   ⚙  ::set-output:: cache-hit=false
+[Test/lint  ]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.12.16/x64
+[Test/lint  ]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.12.16/x64/bin
+[Test/lint  ] ⭐ Run Main install dependencies
+[Test/lint  ]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/2] user= workdir=
+[Test/lint  ]   | Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (26.3)
+[Test/lint  ]   | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[Test/lint  ]   | Requirement already satisfied: flask<4,>=3.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.3)
+[Test/lint  ]   | Requirement already satisfied: gunicorn>=22.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 2)) (26.2.0)
+[Test/lint  ]   | Requirement already satisfied: pytest>=8.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 2)) (9.2.0)
+[Test/lint  ]   | Requirement already satisfied: pytest-cov>=5.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 3)) (7.1.0)
+[Test/lint  ]   | Requirement already satisfied: flake8>=7.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 4)) (7.5.0)
+[Test/lint  ]   | Requirement already satisfied: black>=24.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 5)) (26.10.1)
+[Test/lint  ]   | Requirement already satisfied: blinker>=1.9.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (1.9.0)
+[Test/lint  ]   | Requirement already satisfied: click>=8.1.3 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (8.5.0)
+[Test/lint  ]   | Requirement already satisfied: itsdangerous>=2.2.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (2.2.0)
+[Test/lint  ]   | Requirement already satisfied: jinja2>=3.1.2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.6)
+[Test/lint  ]   | Requirement already satisfied: markupsafe>=2.1.1 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.0.4)
+[Test/lint  ]   | Requirement already satisfied: werkzeug>=3.1.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.9)
+[Test/lint  ]   | Requirement already satisfied: iniconfig>=2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (2.3.1)
+[Test/lint  ]   | Requirement already satisfied: packaging>=24 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (26.3)
+[Test/lint  ]   | Requirement already satisfied: pluggy<2,>=1.6 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (1.7.0)
+[Test/lint  ]   | Requirement already satisfied: pygments>=2.15 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (2.21.0)
+[Test/lint  ]   | Requirement already satisfied: coverage>=7.10.6 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from coverage[toml]>=7.10.6->pytest-cov>=5.0->-r requirements-dev.txt (line 3)) (7.17.0)
+[Test/lint  ]   | Requirement already satisfied: mccabe<0.8.0,>=0.7.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (0.7.0)
+[Test/lint  ]   | Requirement already satisfied: pycodestyle<2.16.0,>=2.15.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (2.15.0)
+[Test/lint  ]   | Requirement already satisfied: pyflakes<4.2.0,>=4.1.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (4.1.0)
+[Test/lint  ]   | Requirement already satisfied: mypy-extensions>=0.4.3 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (1.1.0)
+[Test/lint  ]   | Requirement already satisfied: pathspec>=1.0.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (1.1.1)
+[Test/lint  ]   | Requirement already satisfied: platformdirs>=2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (4.14.3)
+[Test/lint  ]   | Requirement already satisfied: pytokens~=0.4.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (0.4.1)
+[Test/lint  ]   | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[Test/lint  ]   ✅  Success - Main install dependencies [1.256016734s]
+[Test/lint  ] ⭐ Run Main run flake8
+[Test/lint  ]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/3] user= workdir=
+[Test/lint  ]   ✅  Success - Main run flake8 [287.331755ms]
+[Test/lint  ] ⭐ Run Main run black
+[Test/lint  ]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/4] user= workdir=
+[Test/lint  ]   | All done! ✨ 🍰 ✨
+[Test/lint  ]   | 6 files would be left unchanged.
+[Test/lint  ]   ✅  Success - Main run black [397.157539ms]
+[Test/lint  ]   ⚙  ::set-output:: same_count=6
+[Test/lint  ]   ⚙  ::set-output:: failure_count=0
+[Test/lint  ]   ⚙  ::set-output:: is_formatted=false
+[Test/lint  ]   ⚙  ::set-output:: change_count=0
+[Test/lint  ] ⭐ Run Post install python 3.12
+[Test/lint  ]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-setup-python@v7/dist/cache-save/index.js] user= workdir=
+[Test/lint  ]   | [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api --files-from manifest.txt --use-compress-program zstdmt
+[Test/lint  ]   | Cache Size: ~0 MB (41233 B)
+[Test/lint  ]   | Cache saved successfully
+[Test/lint  ]   | Cache saved with the key: setup-python-Linux-x64-24.04-Ubuntu-python-3.12.16-pip-ca599b1fc95e4f788f5c83b373c90aac4e626286337d4d42c3ee950e61e9ea27
+[Test/lint  ]   ✅  Success - Post install python 3.12 [482.881486ms]
+[Test/lint  ] ⭐ Run Complete job
+[Test/lint  ] Cleaning up container for job lint
+[Test/lint  ]   ✅  Success - Complete job
+[Test/lint  ] 🏁  Job succeeded
+[Test/test-2] 🧪  Matrix: map[python-version:3.12]
+[Test/test-2] ⭐ Run Main recuperer le code
+[Test/test-2]   🐳  docker cp src=/home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/. dst=/home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api
+[Test/test-2]   ✅  Success - Main recuperer le code [141.06857ms]
+[Test/test-2] ⭐ Run Main install python 3.12
+[Test/test-2]   🐳  docker cp src=/home/gooses/.cache/act/actions-setup-python@v7/ dst=/var/run/act/actions/actions-setup-python@v7/
+[Test/test-3] 🧪  Matrix: map[python-version:3.13]
+[Test/test-3] ⭐ Run Main recuperer le code
+[Test/test-3]   🐳  docker cp src=/home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/. dst=/home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api
+[Test/test-3]   ✅  Success - Main recuperer le code [142.188013ms]
+[Test/test-3] ⭐ Run Main install python 3.13
+[Test/test-3]   🐳  docker cp src=/home/gooses/.cache/act/actions-setup-python@v7/ dst=/var/run/act/actions/actions-setup-python@v7/
+[Test/test-2]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-setup-python@v7/dist/setup/index.js] user= workdir=
+[Test/test-1] 🧪  Matrix: map[python-version:3.11]
+[Test/test-1] ⭐ Run Main recuperer le code
+[Test/test-1]   🐳  docker cp src=/home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/. dst=/home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api
+[Test/test-2]   ❓  ::group::Installed versions
+[Test/test-2]   | Successfully set up CPython (3.12.16)
+[Test/test-2]   ❓  ::endgroup::
+[Test/test-2]   | [command]/opt/hostedtoolcache/Python/3.12.16/x64/bin/pip cache dir
+[Test/test-1]   ✅  Success - Main recuperer le code [146.746673ms]
+[Test/test-1] ⭐ Run Main install python 3.11
+[Test/test-1]   🐳  docker cp src=/home/gooses/.cache/act/actions-setup-python@v7/ dst=/var/run/act/actions/actions-setup-python@v7/
+[Test/test-3]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-setup-python@v7/dist/setup/index.js] user= workdir=
+[Test/test-2]   | /root/.cache/pip
+[Test/test-3]   ❓  ::group::Installed versions
+[Test/test-3]   | Successfully set up CPython (3.13.18)
+[Test/test-3]   ❓  ::endgroup::
+[Test/test-2]   ⚙  ***
+[Test/test-2]   | Cache Size: ~0 MB (41233 B)
+[Test/test-2]   | [command]/usr/bin/tar -xf /tmp/3eb67324-3479-4ea0-b828-2bf0eab5a3da/cache.tzst -P -C /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api --use-compress-program unzstd
+[Test/test-2]   | Cache restored successfully
+[Test/test-2]   | Cache restored from key: setup-python-linux-x64-24.04-ubuntu-python-3.12.16-pip-ca599b1fc95e4f788f5c83b373c90aac4e626286337d4d42c3ee950e61e9ea27
+[Test/test-2]   ❓ add-matcher /run/act/actions/actions-setup-python@v7/.github/python.json
+[Test/test-2]   ✅  Success - Main install python 3.12 [1.831745202s]
+[Test/test-2]   ⚙  ::set-env:: Python2_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.16/x64
+[Test/test-2]   ⚙  ::set-env:: Python3_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.16/x64
+[Test/test-2]   ⚙  ::set-env:: LD_LIBRARY_PATH=/opt/hostedtoolcache/Python/3.12.16/x64/lib
+[Test/test-2]   ⚙  ::set-env:: pythonLocation=/opt/hostedtoolcache/Python/3.12.16/x64
+[Test/test-2]   ⚙  ::set-env:: PKG_CONFIG_PATH=/opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+[Test/test-2]   ⚙  ::set-env:: Python_ROOT_DIR=/opt/hostedtoolcache/Python/3.12.16/x64
+[Test/test-2]   ⚙  ::set-output:: python-version=3.12.16
+[Test/test-2]   ⚙  ::set-output:: python-path=/opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+[Test/test-2]   ⚙  ::set-output:: cache-hit=false
+[Test/test-2]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.12.16/x64
+[Test/test-2]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.12.16/x64/bin
+[Test/test-3]   | [command]/opt/hostedtoolcache/Python/3.13.18/x64/bin/pip cache dir
+[Test/test-2] ⭐ Run Main install dependencies
+[Test/test-2]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/2] user= workdir=
+[Test/test-1]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-setup-python@v7/dist/setup/index.js] user= workdir=
+[Test/test-3]   | /root/.cache/pip
+[Test/test-3]   ⚙  ***
+[Test/test-3]   | Cache Size: ~9 MB (9008037 B)
+[Test/test-3]   | [command]/usr/bin/tar -xf /tmp/894b2b2e-06f6-4931-a38a-29c2e4029ef2/cache.tzst -P -C /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api --use-compress-program unzstd
+[Test/test-1]   ❓  ::group::Installed versions
+[Test/test-1]   | Successfully set up CPython (3.11.18)
+[Test/test-1]   ❓  ::endgroup::
+[Test/test-1]   | [command]/opt/hostedtoolcache/Python/3.11.18/x64/bin/pip cache dir
+[Test/test-3]   | Cache restored successfully
+[Test/test-3]   | Cache restored from key: setup-python-linux-x64-24.04-ubuntu-python-3.13.18-pip-ca599b1fc95e4f788f5c83b373c90aac4e626286337d4d42c3ee950e61e9ea27
+[Test/test-3]   ❓ add-matcher /run/act/actions/actions-setup-python@v7/.github/python.json
+[Test/test-3]   ✅  Success - Main install python 3.13 [1.788538561s]
+[Test/test-3]   ⚙  ::set-env:: Python2_ROOT_DIR=/opt/hostedtoolcache/Python/3.13.18/x64
+[Test/test-3]   ⚙  ::set-env:: Python3_ROOT_DIR=/opt/hostedtoolcache/Python/3.13.18/x64
+[Test/test-3]   ⚙  ::set-env:: LD_LIBRARY_PATH=/opt/hostedtoolcache/Python/3.13.18/x64/lib
+[Test/test-3]   ⚙  ::set-env:: pythonLocation=/opt/hostedtoolcache/Python/3.13.18/x64
+[Test/test-3]   ⚙  ::set-env:: PKG_CONFIG_PATH=/opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+[Test/test-3]   ⚙  ::set-env:: Python_ROOT_DIR=/opt/hostedtoolcache/Python/3.13.18/x64
+[Test/test-3]   ⚙  ::set-output:: python-version=3.13.18
+[Test/test-3]   ⚙  ::set-output:: python-path=/opt/hostedtoolcache/Python/3.13.18/x64/bin/python
+[Test/test-3]   ⚙  ::set-output:: cache-hit=false
+[Test/test-3]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.13.18/x64
+[Test/test-3]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.13.18/x64/bin
+[Test/test-3] ⭐ Run Main install dependencies
+[Test/test-3]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/2] user= workdir=
+[Test/test-2]   | Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (26.3)
+[Test/test-2]   | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[Test/test-1]   | /root/.cache/pip
+[Test/test-1]   ⚙  ***
+[Test/test-1]   | Cache Size: ~9 MB (8961898 B)
+[Test/test-1]   | [command]/usr/bin/tar -xf /tmp/7fa10faa-95e9-4eec-8284-a9c3c9ddedde/cache.tzst -P -C /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api --use-compress-program unzstd
+[Test/test-1]   | Cache restored successfully
+[Test/test-1]   | Cache restored from key: setup-python-linux-x64-24.04-ubuntu-python-3.11.18-pip-ca599b1fc95e4f788f5c83b373c90aac4e626286337d4d42c3ee950e61e9ea27
+[Test/test-1]   ❓ add-matcher /run/act/actions/actions-setup-python@v7/.github/python.json
+[Test/test-1]   ✅  Success - Main install python 3.11 [1.847215394s]
+[Test/test-1]   ⚙  ::set-env:: pythonLocation=/opt/hostedtoolcache/Python/3.11.18/x64
+[Test/test-1]   ⚙  ::set-env:: PKG_CONFIG_PATH=/opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+[Test/test-1]   ⚙  ::set-env:: Python_ROOT_DIR=/opt/hostedtoolcache/Python/3.11.18/x64
+[Test/test-1]   ⚙  ::set-env:: Python2_ROOT_DIR=/opt/hostedtoolcache/Python/3.11.18/x64
+[Test/test-1]   ⚙  ::set-env:: Python3_ROOT_DIR=/opt/hostedtoolcache/Python/3.11.18/x64
+[Test/test-1]   ⚙  ::set-env:: LD_LIBRARY_PATH=/opt/hostedtoolcache/Python/3.11.18/x64/lib
+[Test/test-1]   ⚙  ::set-output:: python-version=3.11.18
+[Test/test-1]   ⚙  ::set-output:: python-path=/opt/hostedtoolcache/Python/3.11.18/x64/bin/python
+[Test/test-1]   ⚙  ::set-output:: cache-hit=false
+[Test/test-1]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.11.18/x64
+[Test/test-1]   ⚙  ::add-path:: /opt/hostedtoolcache/Python/3.11.18/x64/bin
+[Test/test-1] ⭐ Run Main install dependencies
+[Test/test-1]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/2] user= workdir=
+[Test/test-3]   | Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (26.3)
+[Test/test-2]   | Requirement already satisfied: flask<4,>=3.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.3)
+[Test/test-2]   | Requirement already satisfied: gunicorn>=22.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 2)) (26.2.0)
+[Test/test-2]   | Requirement already satisfied: pytest>=8.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 2)) (9.2.0)
+[Test/test-2]   | Requirement already satisfied: pytest-cov>=5.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 3)) (7.1.0)
+[Test/test-2]   | Requirement already satisfied: flake8>=7.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 4)) (7.5.0)
+[Test/test-2]   | Requirement already satisfied: black>=24.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from -r requirements-dev.txt (line 5)) (26.10.1)
+[Test/test-2]   | Requirement already satisfied: blinker>=1.9.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (1.9.0)
+[Test/test-2]   | Requirement already satisfied: click>=8.1.3 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (8.5.0)
+[Test/test-2]   | Requirement already satisfied: itsdangerous>=2.2.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (2.2.0)
+[Test/test-2]   | Requirement already satisfied: jinja2>=3.1.2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.6)
+[Test/test-2]   | Requirement already satisfied: markupsafe>=2.1.1 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.0.4)
+[Test/test-2]   | Requirement already satisfied: werkzeug>=3.1.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.9)
+[Test/test-2]   | Requirement already satisfied: iniconfig>=2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (2.3.1)
+[Test/test-2]   | Requirement already satisfied: packaging>=24 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (26.3)
+[Test/test-2]   | Requirement already satisfied: pluggy<2,>=1.6 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (1.7.0)
+[Test/test-2]   | Requirement already satisfied: pygments>=2.15 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (2.21.0)
+[Test/test-2]   | Requirement already satisfied: coverage>=7.10.6 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from coverage[toml]>=7.10.6->pytest-cov>=5.0->-r requirements-dev.txt (line 3)) (7.17.0)
+[Test/test-2]   | Requirement already satisfied: mccabe<0.8.0,>=0.7.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (0.7.0)
+[Test/test-2]   | Requirement already satisfied: pycodestyle<2.16.0,>=2.15.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (2.15.0)
+[Test/test-2]   | Requirement already satisfied: pyflakes<4.2.0,>=4.1.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (4.1.0)
+[Test/test-2]   | Requirement already satisfied: mypy-extensions>=0.4.3 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (1.1.0)
+[Test/test-2]   | Requirement already satisfied: pathspec>=1.0.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (1.1.1)
+[Test/test-2]   | Requirement already satisfied: platformdirs>=2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (4.14.3)
+[Test/test-2]   | Requirement already satisfied: pytokens~=0.4.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (0.4.1)
+[Test/test-3]   | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[Test/test-2]   | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[Test/test-2]   ✅  Success - Main install dependencies [1.843671873s]
+[Test/test-2] ⭐ Run Main python version
+[Test/test-2]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/3] user= workdir=
+[Test/test-2]   | Python 3.12.16
+[Test/test-2]   ✅  Success - Main python version [101.455319ms]
+[Test/test-2] ⭐ Run Main run tests
+[Test/test-1]   | Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (26.3)
+[Test/test-2]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/4] user= workdir=
+[Test/test-1]   | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[Test/test-3]   | Requirement already satisfied: flask<4,>=3.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from -r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.3)
+[Test/test-3]   | Requirement already satisfied: gunicorn>=22.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from -r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 2)) (26.2.0)
+[Test/test-3]   | Requirement already satisfied: pytest>=8.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from -r requirements-dev.txt (line 2)) (9.2.0)
+[Test/test-3]   | Requirement already satisfied: pytest-cov>=5.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from -r requirements-dev.txt (line 3)) (7.1.0)
+[Test/test-3]   | Requirement already satisfied: flake8>=7.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from -r requirements-dev.txt (line 4)) (7.5.0)
+[Test/test-3]   | Requirement already satisfied: black>=24.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from -r requirements-dev.txt (line 5)) (26.10.1)
+[Test/test-3]   | Requirement already satisfied: blinker>=1.9.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (1.9.0)
+[Test/test-3]   | Requirement already satisfied: click>=8.1.3 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (8.5.0)
+[Test/test-3]   | Requirement already satisfied: itsdangerous>=2.2.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (2.2.0)
+[Test/test-3]   | Requirement already satisfied: jinja2>=3.1.2 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.6)
+[Test/test-3]   | Requirement already satisfied: markupsafe>=2.1.1 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.0.4)
+[Test/test-3]   | Requirement already satisfied: werkzeug>=3.1.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.9)
+[Test/test-3]   | Requirement already satisfied: iniconfig>=2 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (2.3.1)
+[Test/test-3]   | Requirement already satisfied: packaging>=24 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (26.3)
+[Test/test-3]   | Requirement already satisfied: pluggy<2,>=1.6 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (1.7.0)
+[Test/test-3]   | Requirement already satisfied: pygments>=2.15 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (2.21.0)
+[Test/test-3]   | Requirement already satisfied: coverage>=7.10.6 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from coverage[toml]>=7.10.6->pytest-cov>=5.0->-r requirements-dev.txt (line 3)) (7.17.0)
+[Test/test-3]   | Requirement already satisfied: mccabe<0.8.0,>=0.7.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (0.7.0)
+[Test/test-3]   | Requirement already satisfied: pycodestyle<2.16.0,>=2.15.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (2.15.0)
+[Test/test-3]   | Requirement already satisfied: pyflakes<4.2.0,>=4.1.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (4.1.0)
+[Test/test-3]   | Requirement already satisfied: mypy-extensions>=0.4.3 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (1.1.0)
+[Test/test-3]   | Requirement already satisfied: pathspec>=1.0.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (1.1.1)
+[Test/test-3]   | Requirement already satisfied: platformdirs>=2 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (4.14.3)
+[Test/test-3]   | Requirement already satisfied: pytokens~=0.4.0 in /opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (0.4.1)
+[Test/test-3]   | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[Test/test-3]   ✅  Success - Main install dependencies [1.755530026s]
+[Test/test-3] ⭐ Run Main python version
+[Test/test-3]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/3] user= workdir=
+[Test/test-3]   | Python 3.13.18
+[Test/test-3]   ✅  Success - Main python version [99.736755ms]
+[Test/test-1]   | Requirement already satisfied: flask<4,>=3.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from -r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.3)
+[Test/test-1]   | Requirement already satisfied: gunicorn>=22.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from -r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 2)) (26.2.0)
+[Test/test-1]   | Requirement already satisfied: pytest>=8.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from -r requirements-dev.txt (line 2)) (9.2.0)
+[Test/test-1]   | Requirement already satisfied: pytest-cov>=5.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from -r requirements-dev.txt (line 3)) (7.1.0)
+[Test/test-1]   | Requirement already satisfied: flake8>=7.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from -r requirements-dev.txt (line 4)) (7.5.0)
+[Test/test-1]   | Requirement already satisfied: black>=24.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from -r requirements-dev.txt (line 5)) (26.10.1)
+[Test/test-3] ⭐ Run Main run tests
+[Test/test-1]   | Requirement already satisfied: blinker>=1.9.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (1.9.0)
+[Test/test-1]   | Requirement already satisfied: click>=8.1.3 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (8.5.0)
+[Test/test-1]   | Requirement already satisfied: itsdangerous>=2.2.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (2.2.0)
+[Test/test-1]   | Requirement already satisfied: jinja2>=3.1.2 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.6)
+[Test/test-1]   | Requirement already satisfied: markupsafe>=2.1.1 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.0.4)
+[Test/test-1]   | Requirement already satisfied: werkzeug>=3.1.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from flask<4,>=3.0->-r /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api/requirements.txt (line 1)) (3.1.9)
+[Test/test-1]   | Requirement already satisfied: iniconfig>=2 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (2.3.1)
+[Test/test-1]   | Requirement already satisfied: packaging>=24 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (26.3)
+[Test/test-1]   | Requirement already satisfied: pluggy<2,>=1.6 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (1.7.0)
+[Test/test-1]   | Requirement already satisfied: pygments>=2.15 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from pytest>=8.0->-r requirements-dev.txt (line 2)) (2.21.0)
+[Test/test-1]   | Requirement already satisfied: coverage>=7.10.6 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from coverage[toml]>=7.10.6->pytest-cov>=5.0->-r requirements-dev.txt (line 3)) (7.17.0)
+[Test/test-1]   | Requirement already satisfied: mccabe<0.8.0,>=0.7.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (0.7.0)
+[Test/test-1]   | Requirement already satisfied: pycodestyle<2.16.0,>=2.15.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (2.15.0)
+[Test/test-1]   | Requirement already satisfied: pyflakes<4.2.0,>=4.1.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from flake8>=7.0->-r requirements-dev.txt (line 4)) (4.1.0)
+[Test/test-1]   | Requirement already satisfied: mypy-extensions>=0.4.3 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (1.1.0)
+[Test/test-1]   | Requirement already satisfied: pathspec>=1.0.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (1.1.1)
+[Test/test-1]   | Requirement already satisfied: platformdirs>=2 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (4.14.3)
+[Test/test-1]   | Requirement already satisfied: pytokens~=0.4.0 in /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages (from black>=24.0->-r requirements-dev.txt (line 5)) (0.4.1)
+[Test/test-3]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/4] user= workdir=
+[Test/test-1]   | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[Test/test-1]   ✅  Success - Main install dependencies [1.544766826s]
+[Test/test-1] ⭐ Run Main python version
+[Test/test-1]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/3] user= workdir=
+[Test/test-2]   | ============================= test session starts ==============================
+[Test/test-2]   | platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+[Test/test-2]   | rootdir: /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api
+[Test/test-2]   | configfile: pyproject.toml
+[Test/test-2]   | plugins: platformdirs-4.14.3, cov-7.1.0
+[Test/test-2]   | collected 10 items
+[Test/test-2]   | 
+[Test/test-1]   | Python 3.11.18
+[Test/test-1]   ✅  Success - Main python version [104.126678ms]
+[Test/test-1] ⭐ Run Main run tests
+[Test/test-2]   | tests/test_api.py .....                                                  [ 50%]
+[Test/test-1]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/4] user= workdir=
+[Test/test-2]   | tests/test_logic.py .....                                                [100%]
+[Test/test-2]   | 
+[Test/test-2]   | ================================ tests coverage ================================
+[Test/test-2]   | _______________ coverage: platform linux, python 3.12.16-final-0 _______________
+[Test/test-2]   | 
+[Test/test-2]   | Coverage XML written to file coverage.xml
+[Test/test-2]   | Required test coverage of 80% reached. Total coverage: 95.00%
+[Test/test-2]   | ============================== 10 passed in 0.57s ==============================
+[Test/test-2]   ✅  Success - Main run tests [1.373601567s]
+[Test/test-2] ⭐ Run Main publish coverage report artifact
+[Test/test-2]   🐳  docker cp src=/home/gooses/.cache/act/actions-upload-artifact@v3/ dst=/var/run/act/actions/actions-upload-artifact@v3/
+[Test/test-3]   | ============================= test session starts ==============================
+[Test/test-3]   | platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0
+[Test/test-3]   | rootdir: /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api
+[Test/test-3]   | configfile: pyproject.toml
+[Test/test-3]   | plugins: platformdirs-4.14.3, cov-7.1.0
+[Test/test-3]   | collected 10 items
+[Test/test-3]   | 
+[Test/test-3]   | tests/test_api.py .....                                                  [ 50%]
+[Test/test-3]   | tests/test_logic.py .....                                                [100%]
+[Test/test-3]   | 
+[Test/test-3]   | ================================ tests coverage ================================
+[Test/test-3]   | _______________ coverage: platform linux, python 3.13.18-final-0 _______________
+[Test/test-3]   | 
+[Test/test-3]   | Coverage XML written to file coverage.xml
+[Test/test-3]   | Required test coverage of 80% reached. Total coverage: 95.00%
+[Test/test-3]   | ============================== 10 passed in 0.49s ==============================
+[Test/test-2]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-upload-artifact@v3/dist/index.js] user= workdir=
+[Test/test-2]   | With the provided path, there will be 1 file uploaded
+[Test/test-2]   | Starting artifact upload
+[Test/test-2]   | For more detailed logs during the artifact upload process, enable step-debugging: https://docs.github.com/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging#enabling-step-debug-logging
+[Test/test-2]   | Artifact name is valid!
+[Test/test-2]   | Container for artifact "coverage-report-3.12" successfully created. Starting upload of file(s)
+[Test/test-3]   ✅  Success - Main run tests [1.340799978s]
+[Test/test-2]   | Total size of all the files uploaded is 575 bytes
+[Test/test-2]   | File upload process has finished. Finalizing the artifact upload
+[Test/test-2]   | Artifact has been finalized. All files have been successfully uploaded!
+[Test/test-2]   | 
+[Test/test-2]   | The raw size of all the files that were specified for upload is 2470 bytes
+[Test/test-2]   | The size of all the files that were uploaded is 575 bytes. This takes into account any gzip compression used to reduce the upload size, time and storage
+[Test/test-2]   | 
+[Test/test-2]   | Note: The size of downloaded zips can differ significantly from the reported size. For more information see: https://github.com/actions/upload-artifact#zipped-artifact-downloads 
+[Test/test-2]   | 
+[Test/test-2]   | Artifact coverage-report-3.12 has been successfully uploaded!
+[Test/test-2]   ✅  Success - Main publish coverage report artifact [606.507167ms]
+[Test/test-2] ⭐ Run Post install python 3.12
+[Test/test-3] ⭐ Run Post install python 3.13
+[Test/test-1]   | ============================= test session starts ==============================
+[Test/test-1]   | platform linux -- Python 3.11.18, pytest-9.2.0, pluggy-1.7.0
+[Test/test-1]   | rootdir: /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api
+[Test/test-1]   | configfile: pyproject.toml
+[Test/test-1]   | plugins: platformdirs-4.14.3, cov-7.1.0
+[Test/test-1]   | collected 10 items
+[Test/test-1]   | 
+[Test/test-2]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-setup-python@v7/dist/cache-save/index.js] user= workdir=
+[Test/test-3]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-setup-python@v7/dist/cache-save/index.js] user= workdir=
+[Test/test-1]   | tests/test_api.py .....                                                  [ 50%]
+[Test/test-1]   | tests/test_logic.py .....                                                [100%]
+[Test/test-1]   | 
+[Test/test-1]   | ================================ tests coverage ================================
+[Test/test-1]   | _______________ coverage: platform linux, python 3.11.18-final-0 _______________
+[Test/test-1]   | 
+[Test/test-1]   | Coverage XML written to file coverage.xml
+[Test/test-1]   | Required test coverage of 80% reached. Total coverage: 95.00%
+[Test/test-1]   | ============================== 10 passed in 0.42s ==============================
+[Test/test-2]   | [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api --files-from manifest.txt --use-compress-program zstdmt
+[Test/test-3]   | [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api --files-from manifest.txt --use-compress-program zstdmt
+[Test/test-1]   ✅  Success - Main run tests [1.299219521s]
+[Test/test-2]   | Cache Size: ~0 MB (41234 B)
+[Test/test-2]   | Cache saved successfully
+[Test/test-2]   | Cache saved with the key: setup-python-Linux-x64-24.04-Ubuntu-python-3.12.16-pip-ca599b1fc95e4f788f5c83b373c90aac4e626286337d4d42c3ee950e61e9ea27
+[Test/test-2]   ✅  Success - Post install python 3.12 [412.108805ms]
+[Test/test-2] ⭐ Run Complete job
+[Test/test-2] Cleaning up container for job test
+[Test/test-2]   ✅  Success - Complete job
+[Test/test-2] 🏁  Job succeeded
+[Test/test-1] ⭐ Run Post install python 3.11
+[Test/test-1]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/x64/bin/node /var/run/act/actions/actions-setup-python@v7/dist/cache-save/index.js] user= workdir=
+[Test/test-3]   | Cache Size: ~9 MB (9008428 B)
+[Test/test-3]   | Cache saved successfully
+[Test/test-3]   | Cache saved with the key: setup-python-Linux-x64-24.04-Ubuntu-python-3.13.18-pip-ca599b1fc95e4f788f5c83b373c90aac4e626286337d4d42c3ee950e61e9ea27
+[Test/test-3]   ✅  Success - Post install python 3.13 [654.390094ms]
+[Test/test-3] ⭐ Run Complete job
+[Test/test-3] Cleaning up container for job test
+[Test/test-3]   ✅  Success - Complete job
+[Test/test-3] 🏁  Job succeeded
+[Test/test-1]   | [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/gooses/Desktop/workspace/class/ci_cd/gh-to-del/task-api --files-from manifest.txt --use-compress-program zstdmt
+[Test/test-1]   | Cache Size: ~9 MB (8962445 B)
+[Test/test-1]   | Cache saved successfully
+[Test/test-1]   | Cache saved with the key: setup-python-Linux-x64-24.04-Ubuntu-python-3.11.18-pip-ca599b1fc95e4f788f5c83b373c90aac4e626286337d4d42c3ee950e61e9ea27
+[Test/test-1]   ✅  Success - Post install python 3.11 [482.415877ms]
+[Test/test-1] ⭐ Run Complete job
+[Test/test-1] Cleaning up container for job test
+[Test/test-1]   ✅  Success - Complete job
+[Test/test-1] 🏁  Job succeeded

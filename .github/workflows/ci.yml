@@ -4,16 +4,52 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
     steps:
       - name: recuperer le code
         uses: actions/checkout@v6
+
+      - name: install python ${{ matrix.python-version }}
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: install dependencies
+        run: python -m pip install --upgrade pip && pip install -r requirements-dev.txt
+
+      - name: python version
+        run: python --version
+
+      - name: run tests
+        run: pytest --cov=app --cov-fail-under=80 --cov-report=xml
+
+      - name: publish coverage report artifact
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-report-3.12
+          path: coverage.xml
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: recuperer le code
+        uses: actions/checkout@v6
+
       - name: install python 3.12
         uses: actions/setup-python@v7
         with:
-          python-version: 3.12
+          python-version: "3.12"
+          cache: "pip"
+
       - name: install dependencies
         run: python -m pip install --upgrade pip && pip install -r requirements-dev.txt
-      - name: python version
-        run: python --version
-      - name: run tests
-        run: pytest
+
+      - name: run flake8
+        run: flake8 . --exclude=.venv,.git
+
+      - name: run black
+        run: black --check .
