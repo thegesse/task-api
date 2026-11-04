@@ -61,7 +61,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v6
         with:
-          images: ghcr.io/${{ steps.prep.outputs.OWNER_LC }}/${{ github.event.repository.name }}
+          images: ghcr.io/${{ steps.prep.outputs.OWNER_LC }}/task-api
           tags: |
             type=sha,format=short
             type=semver,pattern={{version}}
@@ -95,7 +95,7 @@ jobs:
 
       - name: Run container (Staging)
         run: |
-          docker run -d --name api-staging -p 8000:8000 ghcr.io/${{ steps.prep.outputs.OWNER_LC }}/${{ github.event.repository.name }}:sha-${{ github.sha }}
+          docker run -d --name api-staging -p 8000:8000 ghcr.io/${{ steps.prep.outputs.OWNER_LC }}/task-api:sha-${{ github.sha }}
 
       - name: Smoke test (/health and /version)
         run: |
@@ -132,7 +132,7 @@ jobs:
 
       - name: Run container (Production)
         run: |
-          docker run -d --name api-prod -p 8000:8000 ghcr.io/${{ steps.prep.outputs.OWNER_LC }}/${{ github.event.repository.name }}:${{ steps.prep.outputs.VERSION }}
+          docker run -d --name api-prod -p 8000:8000 ghcr.io/${{ steps.prep.outputs.OWNER_LC }}/task-api:${{ steps.prep.outputs.VERSION }}
 
       - name: Smoke test release (/health and /version)
         run: |
