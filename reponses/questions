@@ -45,7 +45,7 @@ Apres la resolution, la CI relance les verifications sur la pull request. Les jo
 
 GitHub masque la valeur d'un secret dans les logs pour eviter qu'elle soit exposee par accident. Dans mon run, sa valeur apparait sous la forme ***. Si on commite un secret dans le depot, il peut rester visible dans l'historique Git meme apres sa suppression : il faut alors le revoquer et le remplacer.
 
-J'utilise un secret pour une information confidentielle, comme un jeton d'acces. Une variable convient aux reglages non sensiblesg.
+J'utilise un secret pour une information confidentielle, comme un jeton d'acces. Une variable convient aux reglages non sensibles.
 
 6. REPARATION DES PIPELINES A, B ET C
 
@@ -54,3 +54,40 @@ Pipeline A : il y avait une indentation incorrecte devant l'etape d'installation
 Pipeline B : l'etape checkout manquait. Le runner n'avait donc pas recupere le depot, et pip ne trouvait pas requirements-dev.txt. Les logs indiquaient que le fichier etait introuvable. Il faut recuperer le code avec actions/checkout avant d'utiliser ses fichiers.
 
 Pipeline C : la version 3.10 n'etait pas entre guillemets dans la matrice. YAML l'a interpretee comme le nombre 3.1, et setup-python a cherche une version inexistante. Le message d'erreur indiquait justement 3.1. Pour eviter ca, j'ecris les versions Python entre guillemets.
+
+
+TP3 - REPONSES
+
+1. IMAGE, CONTENEUR ET CACHE DOCKER
+
+Une image est le modele qui contient l'application et ce dont elle a besoin pour fonctionner. Un conteneur est une instance de cette image qui tourne. On peut donc lancer plusieurs conteneurs a partir de la meme image.
+
+Le fichier .dockerignore indique a Docker quels fichiers ne pas envoyer pendant la construction de l'image. Cela evite d'y inclure des fichiers inutiles, comme l'environnement virtuel, le depot Git ou les caches, et rend le contexte de build plus petit.
+
+Quand je modifie seulement le code de l'application, Docker peut reutiliser les couches deja construites pour les dependances. requirements.txt est copie et installe avant le code pour que ces couches restent en cache tant que les dependances ne changent pas.
+
+2. DOCKER COMPOSE
+
+Avec Docker Compose, la configuration du service, des ports et des variables est gardee dans un fichier. C'est plus simple a relancer et a partager qu'une longue commande, et tout le monde demarre le service de la meme facon. Dans ma capture, /version repond « local ».
+
+3. CONSTRUCTION ET PUBLICATION DANS LA CI
+
+Le job build attend que test ait reussi pour ne pas construire ni publier une image si le code ne passe pas les tests. Cela evite de diffuser une version deja connue comme defectueuse.
+
+En production, le tag latest peut changer de contenu sans que son nom change. C'est donc difficile de savoir exactement quelle version tourne et de revenir a une version precise. Un tag versionne, comme 0.1.0, identifie clairement l'image a deployer.
+
+4. IMAGE VERSIONNEE
+
+Une image versionnee est un artefact precis que l'on peut telecharger et lancer sur une autre machine. Elle ne depend pas de l'etat du code ou de l'environnement de developpement local, et on peut retrouver ou redeployer la meme version. J'ai teste l'image 0.1.0 de GHCR et /version a repondu « 0.1.0 ».
+
+5. TEST DE FUMEE ET APPROBATION
+
+Un test de fumee verifie rapidement que le service demarre et que ses fonctions essentielles repondent, ici /health et /version. Ce n'est pas une suite complete de tests, mais cela permet de detecter une panne evidente apres le deploiement.
+
+L'approbation humaine ajoute un controle avant la production. On peut verifier que le deploiement sur staging s'est bien passe et eviter qu'une nouvelle version arrive automatiquement aux utilisateurs sans validation.
+
+6. SECURITE DU CONTENEUR ET DES ACTIONS
+
+L'application ne devrait pas tourner en root : si elle est compromise, un utilisateur non privilegie limite les actions possibles et reduit les degats dans le conteneur. La commande id affiche uid=1000(app), donc mon conteneur ne tourne pas en root.
+
+Le cas de l'action Trivy compromise rappelle qu'une action externe peut elle aussi presenter un risque. Il vaut mieux epingler les actions a une version fiable, limiter les permissions du workflow au strict necessaire et ne fournir que les secrets indispensables. Il faut aussi verifier les actions utilisees avant de leur faire confiance.
