@@ -1,4 +1,4 @@
-# TP3 : Docker et livraison continue
+é# TP3 : Docker et livraison continue
 
 **Durée : environ 3 h 30** · Jour 3, après-midi
 
