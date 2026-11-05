@@ -171,10 +171,14 @@ jobs:
           bash scripts/set-image-tag.sh config/config-repo/k8s/deployment.yaml "$CLEAN_VERSION"
 
       - name: Commit and push config changes
+        env:
+          CONFIG_REPO_TOKEN: ${{ secrets.CONFIG_REPO_TOKEN }}
         run: |
           cd config
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com>"
+          git remote set-url origin https://x-access-token:${CONFIG_REPO_TOKEN}@github.com/thegesse/task-config.git
+          
           git add config-repo/k8s/deployment.yaml
           git commit -m "Update image tag to $VERSION" || echo "No changes to commit"
           git push
