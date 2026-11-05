@@ -121,4 +121,4 @@ Argo CD recupere le changement, synchronise Kubernetes et les pods servent la ve
 
 GitHub Actions pousse l'image vers GHCR, puis pousse le changement de manifeste dans tasks-config. Argo CD tire la configuration depuis Git; ensuite, les nœuds Kubernetes tirent l'image depuis GHCR pour lancer les conteneurs.
 
-Dans un deploiement CI/CD classique, le pipeline envoie souvent directement les changements au cluster. Avec GitOps, le depot de configuration est la source de verite et Argo CD surveille ce depot, puis ramene le cluster a l'etat declare dans Git.
+Dans un deploiement CI/CD classique, le pipeline envoie souvent directement les changements au cluster. Avec GitOps, le depot de configuration est la source de verite et Argo CD surveille ce depot, puis ramene le cluster a l'etat declare dans Git.d
