@@ -91,3 +91,34 @@ L'approbation humaine ajoute un controle avant la production. On peut verifier q
 L'application ne devrait pas tourner en root : si elle est compromise, un utilisateur non privilegie limite les actions possibles et reduit les degats dans le conteneur. La commande id affiche uid=1000(app), donc mon conteneur ne tourne pas en root.
 
 Le cas de l'action Trivy compromise rappelle qu'une action externe peut elle aussi presenter un risque. Il vaut mieux epingler les actions a une version fiable, limiter les permissions du workflow au strict necessaire et ne fournir que les secrets indispensables. Il faut aussi verifier les actions utilisees avant de leur faire confiance.
+
+
+TP4 - REPONSES
+
+1. PODS, DEPLOYMENTS ET NAMESPACES
+
+Un pod est la plus petite unite que Kubernetes lance. Il contient un ou plusieurs conteneurs qui fonctionnent ensemble. Un Deployment indique a Kubernetes combien de copies de l'application doivent tourner et permet de les remplacer ou de les mettre a jour si besoin.
+
+Un namespace sert a separer les ressources d'un meme cluster. Par exemple, Argo CD peut rester dans son namespace et l'application dans un autre, ce qui aide a organiser et gerer les ressources.
+
+2. SEPARATION DES DEPOTS
+
+Le depot de l'application contient le code et sert a construire et publier l'image. Le depot de configuration contient les manifests Kubernetes qui decrivent ce qui doit tourner dans le cluster. Cette separation permet de faire evoluer et de controler les deploiements sans melanger la configuration avec le code de l'application.
+
+3. SELFHEAL ET RETOUR ARRIERE
+
+selfHeal signifie qu'Argo CD corrige automatiquement le cluster lorsqu'il detecte une difference entre son etat reel et celui decrit dans Git. Par exemple, si je change le nombre de replicas manuellement, Argo CD le remet a la valeur indiquee dans le depot de configuration.
+
+Le retour arriere est simple parce que l'historique Git garde les changements. Il suffit de creer un commit revert pour restaurer l'ancienne configuration; Argo CD lit ce nouvel etat et l'applique au cluster. Dans mon cas, le revert a ramene le nombre de replicas de 3 a 2.
+
+4. DU TAG GIT AU POD
+
+Je cree et pousse le tag v0.2.0 sur le depot applicatif.
+GitHub Actions lance les tests, construit l'image et la publie sur GHCR.
+Le deploiement staging est teste, puis la production attend mon approbation.
+Le workflow met a jour le tag de l'image dans le depot tasks-config.
+Argo CD recupere le changement, synchronise Kubernetes et les pods servent la version 0.2.0.
+
+GitHub Actions pousse l'image vers GHCR, puis pousse le changement de manifeste dans tasks-config. Argo CD tire la configuration depuis Git; ensuite, les nœuds Kubernetes tirent l'image depuis GHCR pour lancer les conteneurs.
+
+Dans un deploiement CI/CD classique, le pipeline envoie souvent directement les changements au cluster. Avec GitOps, le depot de configuration est la source de verite et Argo CD surveille ce depot, puis ramene le cluster a l'etat declare dans Git.
