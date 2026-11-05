@@ -159,7 +159,7 @@ jobs:
       - name: Checkout config repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.repository_owner }}/tasks-config
+          repository: ${{ github.repository_owner }}/task-config
           token: ${{ secrets.CONFIG_REPO_TOKEN }}
           path: config
 
