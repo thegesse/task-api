@@ -164,11 +164,11 @@ jobs:
           path: config
 
       - name: Run script to update image tag
-          env:
-            VERSION: ${{ github.ref_name }}
-          run: |
-            CLEAN_VERSION="${VERSION#v}"
-            bash scripts/set-image-tag.sh config/config-repo/k8s/deployment.yaml "$CLEAN_VERSION"
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: |
+          CLEAN_VERSION="${VERSION#v}"
+          bash scripts/set-image-tag.sh config/config-repo/k8s/deployment.yaml "$CLEAN_VERSION"
 
       - name: Commit and push config changes
         run: |
