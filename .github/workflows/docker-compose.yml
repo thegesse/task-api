@@ -167,7 +167,8 @@ jobs:
         env:
           VERSION: ${{ github.ref_name }}
         run: |
-          bash scripts/set-image-tag.sh config/k8s/deployment.yaml "$VERSION"
+          CLEAN_VERSION="${VERSION#v}"
+          bash scripts/set-image-tag.sh config/k8s/deployment.yaml "$CLEAN_VERSION"
 
       - name: Commit and push config changes
         run: |
